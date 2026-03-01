@@ -1,0 +1,57 @@
+# Environment and Configuration
+.env
+.config
+
+# Logs
+logs/*.log
+*.log
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Output and temporary files
+output/
+tmp/
+temp/
+*.tmp
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# Backup files
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Release artifacts
+dist/
+build/
+*.tar.gz
+*.zip
