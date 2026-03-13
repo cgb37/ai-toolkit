@@ -1,4 +1,4 @@
-# link-copilot-skills.sh
+# symlink-ai-skills.sh
 
 Place this script in your `ai-toolkit` repo and configure a `.env` next to it (use `.env.example`).
 
@@ -9,13 +9,13 @@ cp .env.example .env
 ```
 2. Make the script executable:
 ```bash
-chmod +x link-copilot-skills.sh
+chmod +x symlink-ai-skills.sh
 ```
 
 ## .env options
-- `COPILOT_SKILLS_DEST` : destination directory (default `$HOME/.copilot/skills`).
+- `TARGET_DIRS` : comma- or colon-separated list of destination skill directories (e.g. `$HOME/.copilot/skills:~/.claude/skills`). If unset the script defaults to `$HOME/.copilot/skills`.
 - `SKILLS_LIST_FILE` : path to a newline-separated file listing skill paths (preferred).
-- `SKILLS_DIRS` : comma- or colon-separated list of skill paths (alternate).
+- `SKILLS_DIRS` : comma- or colon-separated list of skill source directories (alternate).
 
 If both `SKILLS_LIST_FILE` and `SKILLS_DIRS` are set, `SKILLS_LIST_FILE` takes precedence. You may also pass a skills-list file override as a positional argument to the script.
 
@@ -39,37 +39,37 @@ sed -e 's#^#/Users/you/Code/VendorRepos/#' /path/to/skill-list.txt > /path/to/sk
 ```
 
 ## Examples / Usage
-Dry-run (shows what would be linked):
+Dry-run (shows what would be linked into multiple targets):
 ```bash
-./link-copilot-skills.sh -n
+./symlink-ai-skills.sh -n -t ".copilot/skills:.claude/skills"
 ```
 
 Create links:
 ```bash
-./link-copilot-skills.sh
+./symlink-ai-skills.sh -t ".copilot/skills:.claude/skills"
 ```
 
 Force overwrite existing targets:
 ```bash
-./link-copilot-skills.sh -f
+./symlink-ai-skills.sh -f -t ".copilot/skills:.claude/skills"
 ```
 
 Override `.env` location:
 ```bash
-./link-copilot-skills.sh -e /path/to/.env
+./symlink-ai-skills.sh -e /path/to/.env
 ```
 
 Pass a skills-list file directly (overrides `.env` `SKILLS_LIST_FILE`):
 ```bash
-./link-copilot-skills.sh /path/to/skill-list.txt
+./symlink-ai-skills.sh /path/to/skill-list.txt
 ```
 
 ## Notes
-- After creating symlinks, restart VS Code to ensure the Copilot extension rescans skills.
+- After creating symlinks, restart any editor or extension that scans skills to pick up changes (for example, VS Code / Copilot).
 - Using symlinks lets vendor repos stay up-to-date without copying files.
 - Keep `.env` out of source control if it contains user-specific paths.
 
 
-ls -1 /Users/charlesbrownroberts/Code/VendorRepos/superpowers/skills | tee -a /Users/charlesbrownroberts/Code/CGB37/ai-toolkit/scripts/link-copilot-skills/skill-list.txt
+ls -1 /Users/charlesbrownroberts/Code/VendorRepos/superpowers/skills | tee -a /Users/charlesbrownroberts/Code/CGB37/ai-toolkit/scripts/symlink-ai-skills/skill-list.txt
 
-ls -1 /Users/charlesbrownroberts/Code/VendorRepos/Anthropic/skills/skills | tee -a /Users/charlesbrownroberts/Code/CGB37/ai-toolkit/scripts/link-copilot-skills/skill-list.txt
+ls -1 /Users/charlesbrownroberts/Code/VendorRepos/Anthropic/skills/skills | tee -a /Users/charlesbrownroberts/Code/CGB37/ai-toolkit/scripts/symlink-ai-skills/skill-list.txt
