@@ -1,0 +1,5 @@
+# agents-list.txt
+# Add full paths (one per line) to agent config or skill-agent directories you want to symlink.
+# Example:
+# /Users/you/Code/VendorRepos/some-skill/agents
+

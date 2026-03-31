@@ -1,0 +1,5 @@
+# hooks-list.txt
+# Add full paths (one per line) to hook scripts or directories you want to symlink.
+# Example:
+# /Users/you/Code/VendorRepos/some-skill/hooks
+

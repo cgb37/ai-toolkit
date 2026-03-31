@@ -1,0 +1,8 @@
+# instructions-list.txt
+# Add full or relative paths (one per line) to instruction files or directories you want to symlink.
+# Relative entries are resolved against LIST_BASE_DIR (defaults to $HOME).
+# Examples:
+# Code/VendorRepos/some-skill/instructions
+Code/VendorRepos/awesome-copilot/instructions/security-and-owasp.instructions.md
+Code/VendorRepos/awesome-copilot/instructions/context7.instructions.md
+Code/VendorRepos/awesome-copilot/instructions/update-docs-on-code-change.instructions.md
