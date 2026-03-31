@@ -17,6 +17,21 @@ chmod +x symlink-ai-skills.sh
 - `SKILLS_LIST_FILE` : path to a newline-separated file listing skill paths (preferred).
 - `SKILLS_DIRS` : comma- or colon-separated list of skill source directories (alternate).
 
+Additional per-component list files are supported. Provide newline-separated files and set their paths in `.env` or place next to the script:
+
+- `INSTRUCTIONS_LIST_FILE` : list file for `instructions` directories
+- `HOOKS_LIST_FILE` : list file for `hooks` directories
+- `AGENTS_LIST_FILE` : list file for `agents` directories
+
+Use the `-T` flag to select which components to include (comma-separated). Defaults to all: `skills,instructions,hooks,agents`.
+
+Shared lists tip: list files may contain relative paths. Set `LIST_BASE_DIR` in your `.env` to a common base (defaults to `$HOME`) so lists can be shared between users without hardcoded absolute paths. Example list entries:
+
+- Relative: `Code/VendorRepos/some-skill`  (resolved to `$LIST_BASE_DIR/Code/VendorRepos/some-skill`)
+- Absolute: `/Users/alice/Code/some-skill`
+
+Add `LIST_BASE_DIR` to your `.env` or pass it in the environment when running the script.
+
 If both `SKILLS_LIST_FILE` and `SKILLS_DIRS` are set, `SKILLS_LIST_FILE` takes precedence. You may also pass a skills-list file override as a positional argument to the script.
 
 ## Generating a skills list
